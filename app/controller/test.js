@@ -4,7 +4,6 @@ class TestCtl {
 
     // ① 增
     async createTest(ctx) {
-        console.log(ctx.request.body)
         const test = await new Test(ctx.request.body).save()
         ctx.body = test
     }

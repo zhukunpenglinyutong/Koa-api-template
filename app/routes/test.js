@@ -1,5 +1,5 @@
 const Router = require('koa-router');
-const router = new Router; // new Router({prefix:'user'}) 这样可以设置路由前缀，也是实用的
+const router = new Router; // new Router({prefix:'/***'}) 这样可以设置路由前缀，也是实用的
 
 const {selectTest, createTest, deleteTest, updateTest} = require('../controller/test')
 
