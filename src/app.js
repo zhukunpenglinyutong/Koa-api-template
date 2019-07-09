@@ -10,13 +10,14 @@ app.use(error()) // 错误处理返回
 app.use(bodyBody()) // 解析 请求body中的 JSON
 app.use(parameter(app)) // 参数校验，加入app的话，就能在全局使用了
 
+
 // 连接数据库
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://47.95.0.108:27017/zhu', {useNewUrlParser: true}, () => {
-    console.log('连接成功')
-})
+mongoose.connect(`mongodb://${config.mongodb}`, {useNewUrlParser: true})
 mongoose.connection.on('error', console.error); // mongoose错误监听
 
+// 路由注册
+routing(app)
 
-routing(app) // 路由注册
+// 启动Node服务
 app.listen(config.port, () => console.log(`http://localhost:${config.port}`))
